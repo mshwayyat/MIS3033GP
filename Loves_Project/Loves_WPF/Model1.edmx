@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_128040_lovesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="GradeId" />
+          </Key>
+          <Property Name="GradeId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="StoreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Threshold" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StorePrice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StoreNumber" Type="int" Nullable="false" />
+          <Property Name="Grade" Type="int" Nullable="false" />
+          <Property Name="PreviousPrice" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="NewPrice" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PriceDifference" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_StorePrice_Grade">
+          <End Role="Grade" Type="Self.Grade" Multiplicity="1" />
+          <End Role="StorePrice" Type="Self.StorePrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade">
+              <PropertyRef Name="GradeId" />
+            </Principal>
+            <Dependent Role="StorePrice">
+              <PropertyRef Name="Grade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StorePrice_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="StorePrice" Type="Self.StorePrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="StorePrice">
+              <PropertyRef Name="StoreNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_128040_lovesModelStoreContainer">
+          <EntitySet Name="Grade" EntityType="Self.Grade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Store" EntityType="Self.Store" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StorePrice" EntityType="Self.StorePrice" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_StorePrice_Grade" Association="Self.FK_StorePrice_Grade">
+            <End Role="Grade" EntitySet="Grade" />
+            <End Role="StorePrice" EntitySet="StorePrice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StorePrice_Store" Association="Self.FK_StorePrice_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="StorePrice" EntitySet="StorePrice" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_128040_lovesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Grade">
+          <Key>
+            <PropertyRef Name="GradeId" />
+          </Key>
+          <Property Name="GradeId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="StorePrices" Relationship="Self.FK_StorePrice_Grade" FromRole="Grade" ToRole="StorePrice" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="StoreId" />
+          </Key>
+          <Property Name="StoreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Threshold" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="StorePrices" Relationship="Self.FK_StorePrice_Store" FromRole="Store" ToRole="StorePrice" />
+        </EntityType>
+        <EntityType Name="StorePrice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StoreNumber" Type="Int32" Nullable="false" />
+          <Property Name="Grade" Type="Int32" Nullable="false" />
+          <Property Name="PreviousPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="NewPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="PriceDifference" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TimeStamp" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Grade1" Relationship="Self.FK_StorePrice_Grade" FromRole="StorePrice" ToRole="Grade" />
+          <NavigationProperty Name="Store" Relationship="Self.FK_StorePrice_Store" FromRole="StorePrice" ToRole="Store" />
+        </EntityType>
+        <Association Name="FK_StorePrice_Grade">
+          <End Role="Grade" Type="Self.Grade" Multiplicity="1" />
+          <End Role="StorePrice" Type="Self.StorePrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grade">
+              <PropertyRef Name="GradeId" />
+            </Principal>
+            <Dependent Role="StorePrice">
+              <PropertyRef Name="Grade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StorePrice_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="StorePrice" Type="Self.StorePrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="StoreId" />
+            </Principal>
+            <Dependent Role="StorePrice">
+              <PropertyRef Name="StoreNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_128040_lovesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Grades" EntityType="Self.Grade" />
+          <EntitySet Name="Stores" EntityType="Self.Store" />
+          <EntitySet Name="StorePrices" EntityType="Self.StorePrice" />
+          <AssociationSet Name="FK_StorePrice_Grade" Association="Self.FK_StorePrice_Grade">
+            <End Role="Grade" EntitySet="Grades" />
+            <End Role="StorePrice" EntitySet="StorePrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StorePrice_Store" Association="Self.FK_StorePrice_Store">
+            <End Role="Store" EntitySet="Stores" />
+            <End Role="StorePrice" EntitySet="StorePrices" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_128040_lovesModelStoreContainer" CdmEntityContainer="DB_128040_lovesEntities">
+          <EntitySetMapping Name="Grades">
+            <EntityTypeMapping TypeName="DB_128040_lovesModel.Grade">
+              <MappingFragment StoreEntitySet="Grade">
+                <ScalarProperty Name="GradeId" ColumnName="GradeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stores">
+            <EntityTypeMapping TypeName="DB_128040_lovesModel.Store">
+              <MappingFragment StoreEntitySet="Store">
+                <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Threshold" ColumnName="Threshold" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StorePrices">
+            <EntityTypeMapping TypeName="DB_128040_lovesModel.StorePrice">
+              <MappingFragment StoreEntitySet="StorePrice">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StoreNumber" ColumnName="StoreNumber" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="PreviousPrice" ColumnName="PreviousPrice" />
+                <ScalarProperty Name="NewPrice" ColumnName="NewPrice" />
+                <ScalarProperty Name="PriceDifference" ColumnName="PriceDifference" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

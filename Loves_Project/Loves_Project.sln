@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loves_WPF", "Loves_WPF\Loves_WPF.csproj", "{9CFD8816-CE49-487D-804D-8FD73CBDD597}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loves_WPF", "Loves_WPF\Loves_WPF.csproj", "{9CFD8816-CE49-487D-804D-8FD73CBDD597}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LovesProjectWPF", "LovesProjectWPF\LovesProjectWPF.csproj", "{D6229D71-F933-4F35-9A02-138849FBBB91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{9CFD8816-CE49-487D-804D-8FD73CBDD597}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CFD8816-CE49-487D-804D-8FD73CBDD597}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CFD8816-CE49-487D-804D-8FD73CBDD597}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6229D71-F933-4F35-9A02-138849FBBB91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6229D71-F933-4F35-9A02-138849FBBB91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6229D71-F933-4F35-9A02-138849FBBB91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6229D71-F933-4F35-9A02-138849FBBB91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
