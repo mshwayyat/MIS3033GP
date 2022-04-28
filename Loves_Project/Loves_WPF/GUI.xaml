@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Label x:Name="lblPrice" Content="Please enter base unleaded price: " HorizontalAlignment="Left" Margin="307,175,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="311,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" Height="15"/>
+        <Button x:Name="btnEnter" Content="Enter" HorizontalAlignment="Center" Height="24" Margin="0,229,0,0" VerticalAlignment="Top" Width="48"/>
 
     </Grid>
 </Window>
