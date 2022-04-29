@@ -8,12 +8,16 @@
 
   <ItemGroup>
     <None Remove="Custom dimensions 462x279 px.png" />
+    <None Remove="Loves Logo - Copy.png" />
     <None Remove="Loves Logo.png" />
+    <None Remove="Loves.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Custom dimensions 462x279 px.png" />
+    <Resource Include="Loves Logo - Copy.png" />
     <Resource Include="Loves Logo.png" />
+    <Resource Include="Loves.png" />
   </ItemGroup>
 
 </Project>
