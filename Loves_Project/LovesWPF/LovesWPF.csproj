@@ -7,17 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Custom dimensions 462x279 px.png" />
+    <None Remove="Background.png" />
+    <None Remove="Bottom.png" />
     <None Remove="Loves Logo - Copy.png" />
     <None Remove="Loves Logo.png" />
     <None Remove="Loves.png" />
+    <None Remove="Rainbow.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Custom dimensions 462x279 px.png" />
+    <Resource Include="Background.png" />
+    <Resource Include="Bottom.png" />
     <Resource Include="Loves Logo - Copy.png" />
     <Resource Include="Loves Logo.png" />
     <Resource Include="Loves.png" />
+    <Resource Include="Rainbow.png" />
   </ItemGroup>
 
 </Project>
