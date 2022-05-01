@@ -24,5 +24,10 @@ namespace LovesProject
         {
             InitializeComponent();
         }
+
+        private void EnterBtnClick(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }
