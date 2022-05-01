@@ -1,0 +1,23 @@
+﻿<Window x:Class="LovesProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LovesWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.OpacityMask>
+            <ImageBrush ImageSource="/Loves Logo.png"/>
+        </Grid.OpacityMask>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Loves Logo.png"/>
+        </Grid.Background>
+        <Image HorizontalAlignment="Left" Height="271" Margin="215,168,0,0" VerticalAlignment="Top" Width="386" Source="/Rainbow.png"/>
+        <Label Content="Welcome" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" FontFamily="Bahnschrift" FontWeight="Heavy" Margin="360,202,0,0"/>
+        <Label Content="Enter the Base Unleaded Price" HorizontalAlignment="Left" Margin="294,231,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="16" FontWeight="Normal"/>
+        <TextBox x:Name="txtUser" HorizontalAlignment="Left" Height="35" Margin="360,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99"/>
+        <Button x:Name="btnEnter1" Content="Enter" HorizontalAlignment="Left" Height="32" Margin="372,311,0,0" VerticalAlignment="Top" Width="76" Background="#FFE9E8E2" FontFamily="Bahnschrift"/>
+
+    </Grid>
+</Window>
