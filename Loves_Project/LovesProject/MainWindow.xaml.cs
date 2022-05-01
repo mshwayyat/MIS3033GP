@@ -27,7 +27,32 @@ namespace LovesProject
 
         private void EnterBtnClick(object sender, RoutedEventArgs e)
         {
-           
+            double unleadedprice;
+            string value = PriceTxtBox.Text;
+            bool canconvert = double.TryParse(value, out unleadedprice);
+            double plusprice;
+            double superprice;
+
+            if (canconvert)
+            {
+                plusprice = unleadedprice + 0.30;
+                superprice = plusprice + 0.30;
+                //Show the grade window 
+                MessageBoxResult response;
+                response = MessageBox.Show($" You entered {unleadedprice}", "Does this look correct?", MessageBoxButton.YesNo);
+
+                if (response == MessageBoxResult.Yes)
+                {
+
+                }
+                
+
+                //Calculate the other prices and output in list box 
+            }
+            else
+            {
+                MessageBox.Show("Error, please enter a valid gas price.");
+            }
         }
     }
 }
