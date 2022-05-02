@@ -95,8 +95,7 @@ namespace LovesProject
                 if (response == MessageBoxResult.Yes)
                 {
                    
-                   //DB_128040_lovesEntities mydb = new DB_128040_lovesEntities();
-                    //mydb.StorePrices.Find(plusprice);
+                   
                 }
 
                 //Calculate the other prices and output in list box 
