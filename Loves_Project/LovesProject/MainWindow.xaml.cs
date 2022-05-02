@@ -106,5 +106,10 @@ namespace LovesProject
                 MessageBox.Show("Error, please enter a valid gas price.");
             }
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
