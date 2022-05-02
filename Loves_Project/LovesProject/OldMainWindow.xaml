@@ -17,7 +17,7 @@
         <Label Content="Enter the Base Unleaded Price" HorizontalAlignment="Left" Margin="490,82,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="16" FontWeight="Normal"/>
         <TextBox x:Name="PriceTxtBox" HorizontalAlignment="Left" Height="35" Margin="555,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99"/>
         <Button x:Name="EnterBtn" Content="Enter" HorizontalAlignment="Center" Height="32" Margin="0,169,0,0" VerticalAlignment="Top" Width="76" Background="#FFE9E8E2" FontFamily="Bahnschrift" Click="EnterBtnClick"/>
-        <ComboBox x:Name="StoreIDCB" HorizontalAlignment="Left" Margin="105,124,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="StoreIDCBSelectionChanged" />
+        <ComboBox x:Name="StoreIDCB" HorizontalAlignment="Left" Margin="105,124,0,0" VerticalAlignment="Top" Width="120" Selected="StoreNumberCBSelected"/>
         <Label Content="Please select a Store Number:" HorizontalAlignment="Left" Margin="87,82,0,0" VerticalAlignment="Top" Height="37" Width="242" FontSize="16" FontFamily="Bahnschrift"/>
         <ListBox x:Name="ListBoxOutput" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="122,271,122,47"/>
 

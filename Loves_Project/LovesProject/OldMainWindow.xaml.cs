@@ -68,11 +68,7 @@ namespace LovesProject
                 Console.WriteLine(reader3["StoreNumber"].ToString() + " " + reader3["Grade"].ToString() + " " + reader3["PreviousPrice"] + " " + reader3["Timestamp"]);
                 StorePriceClass temp= new StorePriceClass();
                 temp.StoreNumber = Convert.ToInt32(reader3["StoreNumber"]);
-                if(StoreIDCB.Items.Contains(temp.StoreNumber) == false)
-                {
-                    StoreIDCB.Items.Add(temp.StoreNumber);
-                }
-  
+                StoreIDCB.Items.Add(temp.StoreNumber);
                 temp.StoreGrade = reader3["Grade"].ToString();
                 temp.PreviousPrice = Convert.ToDouble(reader3["PreviousPrice"]);
                 temp.TimeStamp = reader3["Timestamp"].ToString();
@@ -80,7 +76,6 @@ namespace LovesProject
                 
             }
             reader3.Close();
-            StoreIDCB.SelectedIndex = 0;   
         }
 
         private void EnterBtnClick(object sender, RoutedEventArgs e)
@@ -101,19 +96,11 @@ namespace LovesProject
 
                 if (response == MessageBoxResult.Yes)
                 {
-                    string store = StoreIDCB.Text;                   
-                    Console.WriteLine("Currently selected store = " + store);
-                    foreach (StorePriceClass x in storePrice)
-                        if (x.StoreNumber == Convert.ToInt32(store))
-                        {
-                            // got my storeprice object in question
-                            Console.WriteLine(x.StoreNumber);
-                            //Calculate the other prices and output in list box 
-                            //Use .30? or Threshold for the stores price 
-                            //Add export button to retirve a CSV file
-                            //When export button is clicked, output CSV then clear list box 
-                        }
-                }            
+                   
+                   
+                }
+
+                //Calculate the other prices and output in list box 
             }
             else
             {
@@ -121,9 +108,9 @@ namespace LovesProject
             }
         }
 
-        private void StoreIDCBSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void StoreNumberCBSelected(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(StoreIDCB.SelectedItem.ToString());
+            string number = StoreIDCB.SelectedItem.ToString();
         }
     }
 }
