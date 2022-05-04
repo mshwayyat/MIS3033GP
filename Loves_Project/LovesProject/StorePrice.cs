@@ -24,5 +24,10 @@ namespace LovesProject
     
         public virtual Grade Grade1 { get; set; }
         public virtual Store Store { get; set; }
+
+        public override string ToString()
+        {
+            return $""; //This is for list box output. Concatenate together everything 
+        }
     }
 }
